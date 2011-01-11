@@ -62,6 +62,11 @@ sub soap_mpd {
 	my $version = $mpd->readline;
 	print $version . "\n";
 	
+	if (defined($_[7]) {
+		$mpd->writeline("password $_[7]");
+		check_status($mpd);
+	}
+
 	my @outputs = get_outputs($mpd);
 	
 	my $i;
@@ -101,4 +106,4 @@ sub soap_mpd {
 	$mpd->close;
 }
 
-soap_mpd($ARGV[0],$ARGV[1],$ARGV[2],$ARGV[3],$ARGV[4],$ARGV[5],$ARGV[6]);
+soap_mpd($ARGV[0],$ARGV[1],$ARGV[2],$ARGV[3],$ARGV[4],$ARGV[5],$ARGV[6],$ARGV[7]);
